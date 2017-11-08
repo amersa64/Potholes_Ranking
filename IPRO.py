@@ -5,16 +5,22 @@
 import pandas as pd
 import numpy as np
 import googlemaps
-import keys.py 
+import keys
+import json
 
 #this is mock algorithmm we probably gotta redefine it.
 def the_almighty_algorithm(row):
     return 10*row['width']+5*row['length']+20*row['depth']+np.log(row['Traffic Density'])
 
+#finds exact formatted street name based on gps longitude and latitude data
 def geocode():
-    gmaps = googlemaps.Client(key=keys['binbin_gmap_api'])
-    address = gmaps.reverse_geocode(('-87.629','41.878'))
-    return print(address)
+    gmaps = googlemaps.Client(key=keys.keys['binbin_gmap_api'])
+    reversed_data = gmaps.reverse_geocode((40.714224, -73.961452),result_type='street_address')
+    #print(reversed_data)
+    formatted_address = json.dumps(reversed_data)
+    #print(formatted_address)
+    reloaded_address = json.loads(formatted_address)[0]
+    return print(reloaded_address['formatted_address'])
 
 def main():
     #generate Synthatic Data
@@ -45,5 +51,4 @@ def main():
     sorted_data.to_csv('sorted_data.csv',sep=',',header=True,index=False)
     return print('Success')
 
-#main()
-geocode()
+main()
