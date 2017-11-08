@@ -4,10 +4,17 @@
 
 import pandas as pd
 import numpy as np
+import googlemaps
+import keys.py 
 
 #this is mock algorithmm we probably gotta redefine it.
 def the_almighty_algorithm(row):
     return 10*row['width']+5*row['length']+20*row['depth']+np.log(row['Traffic Density'])
+
+def geocode():
+    gmaps = googlemaps.Client(key=keys['binbin_gmap_api'])
+    address = gmaps.reverse_geocode(('-87.629','41.878'))
+    return print(address)
 
 def main():
     #generate Synthatic Data
@@ -38,4 +45,5 @@ def main():
     sorted_data.to_csv('sorted_data.csv',sep=',',header=True,index=False)
     return print('Success')
 
-main()
+#main()
+geocode()
