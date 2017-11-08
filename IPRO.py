@@ -27,7 +27,7 @@ def main():
     # np.random.rand(x,y) produces x rows and y columns of values from 0~1
     df2 = pd.DataFrame(np.random.rand(100, 6)*5,columns=['width', 'length', 'depth', 'traffic density','longitude','latitude'])
 
-    df2['traffic density'] = np.random.rand(100,1)*2000// 1
+    df2['traffic density'] = np.random.randint(1,2000,(100,1))
     df2['longitude'] = np.random.uniform(-180,180,(100,1))
     df2['latitude'] = np.random.uniform(-90,90,(100,1))
     #save generic data to csv file
