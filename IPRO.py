@@ -10,7 +10,7 @@ import json
 
 #this is mock algorithmm we probably gotta redefine it.
 def the_almighty_algorithm(row):
-    return 10*row['width']+5*row['length']+20*row['depth']+np.log(row['Traffic Density'])
+    return 10*row['width']+5*row['length']+20*row['depth']+np.log(row['traffic density'])
 
 #finds exact formatted street name based on gps longitude and latitude data
 def geocode():
@@ -25,15 +25,15 @@ def geocode():
 def main():
     #generate Synthatic Data
     # np.random.rand(x,y) produces x rows and y columns of values from 0~1
-    df2 = pd.DataFrame(np.random.rand(100, 4)*5,columns=['width', 'length', 'depth', 'Traffic Density'])
+    df2 = pd.DataFrame(np.random.rand(100, 4)*5,columns=['width', 'length', 'depth', 'traffic density'])
 
-    df2['Traffic Density'] = np.random.rand(100,1)*2000// 1
+    df2['traffic density'] = np.random.rand(100,1)*2000// 1
 
     #save generic data to csv file
-    df2.to_csv('Synthatic_Data.csv',sep=',',header=True,index=False)
+    df2.to_csv('synthetic_data.csv',sep=',',header=True,index=False)
 
     #load data from csv file
-    data = pd.read_csv('Synthatic_Data.csv',index_col=False)
+    data = pd.read_csv('synthetic_data.csv',index_col=False)
 
     #remove duplicates, may want to do something else with this
     data.drop_duplicates(inplace=True)
