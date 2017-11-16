@@ -1,6 +1,6 @@
 Let w, l, h be the dimensions of a pothole. Let d note the traffic density for that pothole:  
 We define C as the scoring function:  
-      *C(w,l,h,d) = w<sub>2</sub>log(w * h *l+beta) + w<sub>2</sub>*ln(d)+e^(t)***   
+      **C(w,l,h,d) = w<sub>2</sub>log(w * h * l+beta) + w<sub>2</sub> * ln(d)+e^(t)**   
       where t is the time since recorded in years.  
       Where w1 and w2 are assigned weights for the density in that geolocation.  
 beta is the base score which is subject to the constraint that w,l,h > alpha and d > lambda  
