@@ -1,6 +1,6 @@
 Let w, l, h be the dimensions of a pothole. Let d note the traffic density for that pothole:  
 We define C as the scoring function:  
-      **C(w,l,h,d) = w<sub>1</sub> * log(w * h * l+beta) + w<sub>2</sub> * ln(d)+e^(t)+ \sum_{i=1}^{10} t_i **   
+      **C(w,l,h,d) = w<sub>1</sub> * log(w * h * l+beta) + w<sub>2</sub> * ln(d)+e^(t)+ \sum_{i=1}^{10} t_i**   
       where t is the time since recorded in years.  
       where G<sub>i</sub> is the report count for a location
       Where w1 and w2 are assigned weights for the density in that geolocation.  
